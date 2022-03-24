@@ -1,6 +1,8 @@
 Тема проекта - "Морской Бой"
+============================
 Для сборки проекта:
-mkdir build
-cd build
-cmake ../Sea_Battle
-make
+-------------------
+1) mkdir build
+2) cd build
+3) cmake ../Sea_Battle
+4) make
