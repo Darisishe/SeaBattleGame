@@ -1,9 +1,10 @@
 #ifndef IO_H
 #define IO_H
+
 #include <string>
 #include <vector>
-class Player;
-class Cell;
+#include "Player.h"
+
 class InterfaceIO {
 public:
     virtual void initializePlayers(Player& player1, Player& player2) const = 0;

@@ -1,22 +1,16 @@
 #ifndef PLAYER_H
 #define PLAYER_H
-#include "Ship.h"
+#include "Field.h"
+
 class Player {
-    vector<Cell> shots;
-    vector<Ship> ships;
     std::string name;
     std::string password;
 public:
+    Field field;
     Player();
-    Player(const std::string&, const std::string&);
-    const vector<Cell>& getShots() const;
-    const vector<Ship>& getShips() const;
+    Player(const std::string& name, const std::string& password);
     const std::string& getName() const;
     bool checkPassword(const std::string&) const;
-    bool tryToPlace(int row, int column, bool direction, int cntDecks);
-    bool isAlive() const;
-    std::shared_ptr<Command> attack(const Cell& pos);
-    void clear();
 };
 
 
