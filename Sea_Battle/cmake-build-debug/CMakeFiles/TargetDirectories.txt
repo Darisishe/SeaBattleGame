@@ -1,4 +1,0 @@
-/home/darisishe/Sea_Battle/Sea_Battle/cmake-build-debug/CMakeFiles/Sea_Battle.dir
-/home/darisishe/Sea_Battle/Sea_Battle/cmake-build-debug/CMakeFiles/detail.dir
-/home/darisishe/Sea_Battle/Sea_Battle/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/darisishe/Sea_Battle/Sea_Battle/cmake-build-debug/CMakeFiles/rebuild_cache.dir
