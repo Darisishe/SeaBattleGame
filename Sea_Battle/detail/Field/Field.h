@@ -25,7 +25,7 @@ public:
     bool checkCollision(const Ship& ship) const;
     bool isAlive() const;
     void updateStatus();
-    std::shared_ptr<Command> attack(const Cell& pos);
+    std::shared_ptr<Command> hitCell(const Cell& pos);
     void pushSurroundings(std::vector<Cell>& shots) const;
 };
 
@@ -35,9 +35,9 @@ class Field {
 public:
     const std::vector<Cell>& getShots() const;
     const std::vector<Ship>& getShips() const;
-    std::shared_ptr<Command> attack(const Cell& pos);
+    std::shared_ptr<Command> hitCell(const Cell& pos);
     bool tryToPlace(int row, int column, bool direction, int cntDecks);
-    bool isAlive() const;
+    bool isAnyShipAlive() const;
     void clear();
 };
 #endif //SEA_BATTLE_FIELD_H

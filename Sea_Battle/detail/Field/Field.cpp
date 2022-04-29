@@ -34,7 +34,7 @@ void Ship::updateStatus() {
             alive = true;
 }
 
-std::shared_ptr<Command> Ship::attack(const Cell& pos) {
+std::shared_ptr<Command> Ship::hitCell(const Cell& pos) {
     for(Deck& dck: decks) {
         if(dck.row == pos.row && dck.column == pos.column) {
             if(dck.isShot)
@@ -71,10 +71,10 @@ const std::vector<Ship>& Field::getShips() const {
     return ships;
 }
 
-std::shared_ptr<Command> Field::attack(const Cell& pos) {
+std::shared_ptr<Command> Field::hitCell(const Cell& pos) {
     shots.push_back(pos);
     for(Ship& s: ships) {
-        std::shared_ptr<Command> cmd = s.attack(pos);
+        std::shared_ptr<Command> cmd = s.hitCell(pos);
         if (cmd->isMiss()) continue;
         if(!s.isAlive())
             s.pushSurroundings(shots);
@@ -98,7 +98,7 @@ bool Field::tryToPlace(int row, int column, bool direction, int cntDecks) { //tr
     return true;
 }
 
-bool Field::isAlive() const {
+bool Field::isAnyShipAlive() const {
     bool answer = false;
     for(const Ship& s: ships)
         answer = (answer || s.isAlive());
