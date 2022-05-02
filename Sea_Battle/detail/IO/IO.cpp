@@ -1,8 +1,7 @@
-#include "IO.h"
-#include "Ship.h"
-#include "Player.h"
 #include <iostream>
 #include <limits>
+#include "IO.h"
+#include "Player.h"
 
 using std::vector;
 void ConsoleIO::drawField(const Player& player, char defaultForDeck) const {
@@ -16,10 +15,10 @@ void ConsoleIO::drawField(const Player& player, char defaultForDeck) const {
     }
     field.back() = "   |_____________________|";
 
-    const vector<Cell>& shots = player.getShots();
+    const vector<Cell>& shots = player.field.getShots();
     for (const Cell& cl: shots)
         field[cl.row + 1][3 + 2 * cl.column] = '*';
-    const vector<Ship>& ships = player.getShips();
+    const vector<Ship>& ships = player.field.getShips();
     for (const Ship& ship: ships) {
         for (const Deck &dck: ship.getDecks()) {
             field[dck.row + 1][3 + 2 * dck.column] = dck.isShot ? 'x' : defaultForDeck;
@@ -111,7 +110,7 @@ void ConsoleIO::arrangeShips(Player& player) const {
             int column = -1;
             char direction = ' ';
             readPlacement(row, column, direction, cntDecks > 1);
-            while(!player.tryToPlace(row, column, direction == 'V', cntDecks)) {
+            while(!player.field.tryToPlace(row, column, direction == 'V', cntDecks)) {
                 std::cout << "Не удалось распложить данный корабль, попробуйте другую позицию: ";
                 readPlacement(row, column, direction, cntDecks > 1);
             }
