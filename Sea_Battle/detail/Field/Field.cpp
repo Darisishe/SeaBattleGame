@@ -1,5 +1,7 @@
 #include "Field.h"
 #include "Command.h"
+#include <cmath>
+
 
 Cell::Cell(int r, int c): row(r), column(c) {}
 

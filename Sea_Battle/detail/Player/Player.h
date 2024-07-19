@@ -1,6 +1,7 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 #include "Field.h"
+#include <string>
 
 class Player {
     std::string name;
